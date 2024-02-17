@@ -3,17 +3,17 @@ import Home from './Components/Home';
 import Header from './Components/Header';
 
 function App() {
-  const [getWorkouts, setWorkouts] = useState([]);
+  const [workouts, setWorkouts] = useState([]);
 
   const addWorkout = (newWorkout) => {
-    setWorkouts([...getWorkouts, newWorkout]);
+    setWorkouts([...workouts, newWorkout]);
   };
 
   return (
     <>
       <Header />
       <h1>Custom Fit</h1>
-      <Home workouts={getWorkouts} />
+      <Home workouts={workouts} />
     </>
   );
 }
