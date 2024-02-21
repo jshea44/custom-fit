@@ -1,4 +1,8 @@
 function Workout({ workout }) {
+  // const sampleData = {
+
+  // };
+
   return (
     <li>
       <p>{workout.name}</p>

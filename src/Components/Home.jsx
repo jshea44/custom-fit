@@ -1,18 +1,25 @@
-import { Stack, Button } from '@mui/material';
-import Workout from './Workout';
+import { Button, Stack } from '@mui/material';
+// import Workout from './Workout';
 
-function Home({ workouts }) {
+const sampleWorkouts = [
+  'Full-Body Mondays',
+  'Chest & Back',
+  'Pull, Push, and Legs',
+  'Cardio Xtreme',
+];
+
+function Home() {
   return (
     <div>
       <h2>Workouts</h2>
-      <Stack spacing={2} direction="row">
-        <Button variant="contained">Create Workout</Button>
-      </Stack>
-      <ul>
-        {workouts.map((workout, index) => (
-          <Workout key={index} workout={workout} />
+
+      <Button variant="contained">Create Workout</Button>
+
+      <Stack spacing={2} direction={'column'}>
+        {sampleWorkouts.map((workout, index) => (
+          <Button key={index}>{workout}</Button>
         ))}
-      </ul>
+      </Stack>
     </div>
   );
 }
