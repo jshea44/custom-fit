@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Home from './Components/Home';
 import Header from './Components/Header';
+import CreateWorkout from './Components/CreateWorkout';
 
 function App() {
   // const [workouts, setWorkouts] = useState([]);
@@ -12,8 +13,10 @@ function App() {
   return (
     <>
       <Header />
-      <h1>Custom Fit</h1>
+      <hr />
       <Home />
+      <hr />
+      <CreateWorkout />
     </>
   );
 }

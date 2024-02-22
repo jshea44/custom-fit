@@ -6,7 +6,7 @@ function Header(props) {
 
   return (
     <div>
-      <h2>This is my Header component</h2>
+      <h1>Custom Fit (this is the header)</h1>
     </div>
   );
 }
