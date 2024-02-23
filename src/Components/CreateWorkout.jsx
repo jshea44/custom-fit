@@ -36,43 +36,48 @@ function CreateWorkout() {
   return (
     <div>
       <h2>Create Workout</h2>
-      <Box sx={{ width: 50 }}>
-        <FormControl variant="outlined" sx={{ width: '100ch' }}>
-          <form>
-            <TextField
-              fullWidth
-              label="Workout Name"
-              sx={{ width: '25ch' }}
-            ></TextField>
-            <List>
-              <ListItem>
-                <TextField
-                  label="Exercise Name"
-                  sx={{ width: '25ch' }}
-                ></TextField>
-              </ListItem>
-              <ListItem>
-                <TextField label="Sets" sx={{ width: '25ch' }}></TextField>
-              </ListItem>
-              <ListItem>
-                <TextField label="Reps" sx={{ width: '25ch' }}></TextField>
-              </ListItem>
-              <ListItem>
-                <TextField label="Weight" sx={{ width: '25ch' }}></TextField>
-              </ListItem>
-              <ListItem>
-                <TextField label="Time" sx={{ width: '25ch' }}></TextField>
-              </ListItem>
-              <ListItem>
-                <TextField label="Distance" sx={{ width: '25ch' }}></TextField>
-              </ListItem>
-              <Divider>
-                <Button type="submit">Add Another Exercise</Button>
-              </Divider>
-            </List>
-            <Button type="submit">Create</Button>
-          </form>
-        </FormControl>
+      <Box
+        sx={{
+          border: '2px solid grey',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <form>
+          <TextField
+            fullWidth
+            label="Workout Name"
+            sx={{ width: '25ch' }}
+          ></TextField>
+          <List>
+            <ListItem>
+              <TextField
+                label="Exercise Name"
+                sx={{ width: '25ch' }}
+              ></TextField>
+            </ListItem>
+            <ListItem>
+              <TextField label="Sets" sx={{ width: '25ch' }}></TextField>
+            </ListItem>
+            <ListItem>
+              <TextField label="Reps" sx={{ width: '25ch' }}></TextField>
+            </ListItem>
+            <ListItem>
+              <TextField label="Weight" sx={{ width: '25ch' }}></TextField>
+            </ListItem>
+            <ListItem>
+              <TextField label="Time" sx={{ width: '25ch' }}></TextField>
+            </ListItem>
+            <ListItem>
+              <TextField label="Distance" sx={{ width: '25ch' }}></TextField>
+            </ListItem>
+            <Divider>
+              <Button type="submit">Add Another Exercise</Button>
+            </Divider>
+          </List>
+          <Button type="submit">Create</Button>
+        </form>
       </Box>
     </div>
   );
