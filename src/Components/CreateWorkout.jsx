@@ -36,20 +36,26 @@ function CreateWorkout() {
   return (
     <div>
       <h2>Create Workout</h2>
-      <Box
-        sx={{
-          border: '2px solid grey',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <form>
-          <TextField
-            fullWidth
-            label="Workout Name"
-            sx={{ width: '25ch' }}
-          ></TextField>
+      <form>
+        <TextField
+          fullWidth
+          label="Workout Name"
+          InputLabelProps={{
+            sx: {
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            },
+          }}
+        ></TextField>
+        <Box
+          sx={{
+            border: '2px solid grey',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
           <List>
             <ListItem>
               <TextField
@@ -72,13 +78,22 @@ function CreateWorkout() {
             <ListItem>
               <TextField label="Distance" sx={{ width: '25ch' }}></TextField>
             </ListItem>
-            <Divider>
-              <Button type="submit">Add Another Exercise</Button>
-            </Divider>
+            <ListItem>
+              <TextField
+                label="Add a description..."
+                multiline
+                rows={4}
+                sx={{ width: '25ch' }}
+              ></TextField>
+            </ListItem>
           </List>
-          <Button type="submit">Create</Button>
-        </form>
-      </Box>
+        </Box>
+        <Divider>
+          <Button type="submit">Add Another Exercise</Button>
+        </Divider>
+        <Button type="submit">Create</Button>
+        <Button type="submit">Cancel</Button>
+      </form>
     </div>
   );
 }
