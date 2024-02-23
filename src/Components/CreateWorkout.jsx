@@ -37,24 +37,42 @@ function CreateWorkout() {
     <div>
       <h2>Create Workout</h2>
       <Box sx={{ width: 50 }}>
-        <List>
+        <FormControl variant="outlined" sx={{ width: '100ch' }}>
           <form>
-            <FormControl variant="outlined" sx={{ width: 500 }}>
-              <TextField
-                fullWidth
-                label="Workout Name"
-                sx={{ width: '25ch' }}
-              ></TextField>
+            <TextField
+              fullWidth
+              label="Workout Name"
+              sx={{ width: '25ch' }}
+            ></TextField>
+            <List>
               <ListItem>
                 <TextField
                   label="Exercise Name"
                   sx={{ width: '25ch' }}
                 ></TextField>
               </ListItem>
-            </FormControl>
+              <ListItem>
+                <TextField label="Sets" sx={{ width: '25ch' }}></TextField>
+              </ListItem>
+              <ListItem>
+                <TextField label="Reps" sx={{ width: '25ch' }}></TextField>
+              </ListItem>
+              <ListItem>
+                <TextField label="Weight" sx={{ width: '25ch' }}></TextField>
+              </ListItem>
+              <ListItem>
+                <TextField label="Time" sx={{ width: '25ch' }}></TextField>
+              </ListItem>
+              <ListItem>
+                <TextField label="Distance" sx={{ width: '25ch' }}></TextField>
+              </ListItem>
+              <Divider>
+                <Button type="submit">Add Another Exercise</Button>
+              </Divider>
+            </List>
+            <Button type="submit">Create</Button>
           </form>
-          <Button type="submit">Create</Button>
-        </List>
+        </FormControl>
       </Box>
     </div>
   );
