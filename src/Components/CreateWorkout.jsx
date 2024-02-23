@@ -14,7 +14,17 @@ import {
 import { useState } from 'react';
 
 function CreateWorkout() {
-  const [exercises, setExercises] = useState([]);
+  const [exercises, setExercises] = useState([
+    {
+      name: '',
+      sets: '',
+      reps: '',
+      weight: '',
+      time: '',
+      distance: '',
+      description: '',
+    },
+  ]);
 
   const addExercise = () => {
     setExercises([
@@ -35,7 +45,11 @@ function CreateWorkout() {
     <div>
       <h2>Create Workout</h2>
       <form>
-        <TextField fullWidth label="Workout Name"></TextField>
+        <TextField
+          fullWidth
+          label="Workout Name"
+          sx={{ paddingBottom: 5 }}
+        ></TextField>
         {exercises.map((exercise, index) => (
           <Box
             key={index}
