@@ -8,12 +8,14 @@ const sampleWorkouts = [
   'Cardio Xtreme',
 ];
 
-function Home() {
+function Home({ onCreateWorkoutClick }) {
   return (
     <div>
       <h2>Workouts</h2>
 
-      <Button variant="contained">Create Workout</Button>
+      <Button variant="contained" onClick={onCreateWorkoutClick}>
+        Create Workout
+      </Button>
 
       <Stack spacing={2} direction={'column'}>
         {sampleWorkouts.map((workout, index) => (
