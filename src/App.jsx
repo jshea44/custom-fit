@@ -22,11 +22,16 @@ function App() {
     <>
       <Header />
       <hr />
-      {showHome && <Home onCreateWorkoutClick={handleCreateWorkoutClick} />}
+      {showHome && (
+        <Home
+          onCreateWorkoutClick={handleCreateWorkoutClick}
+          onWorkoutClick={handleWorkoutClick}
+        />
+      )}
       <hr />
       {showCreateWorkout && <CreateWorkout />}
       <hr />
-      <Workout />
+      {showWorkout && <Workout />}
     </>
   );
 }
