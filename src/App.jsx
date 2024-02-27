@@ -3,6 +3,7 @@ import Home from './Components/Home';
 import Header from './Components/Header';
 import CreateWorkout from './Components/CreateWorkout';
 import Workout from './Components/Workout';
+import Footer from './Components/Footer';
 
 function App() {
   const [showHome, setShowHome] = useState(true);
@@ -21,17 +22,15 @@ function App() {
   return (
     <>
       <Header />
-      <hr />
       {showHome && (
         <Home
           onCreateWorkoutClick={handleCreateWorkoutClick}
           onWorkoutClick={handleWorkoutClick}
         />
       )}
-      <hr />
       {showCreateWorkout && <CreateWorkout />}
-      <hr />
       {showWorkout && <Workout />}
+      <Footer />
     </>
   );
 }

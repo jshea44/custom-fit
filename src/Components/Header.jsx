@@ -6,7 +6,7 @@ function Header(props) {
 
   return (
     <div>
-      <h1>Custom Fit (this is the header)</h1>
+      <p>Custom Fit (this is the header)</p>
     </div>
   );
 }
