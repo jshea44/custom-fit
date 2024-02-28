@@ -1,11 +1,6 @@
-import { useState } from 'react';
-
-function Header(props) {
-  console.log(props);
-  // const [getter, setter] = useState([]);
-
+function Header() {
   return (
-    <div>
+    <div id="header">
       <p>Custom Fit (this is the header)</p>
     </div>
   );

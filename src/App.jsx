@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Home from './Components/Home';
 import Header from './Components/Header';
 import CreateWorkout from './Components/CreateWorkout';
 import Workout from './Components/Workout';
 import Footer from './Components/Footer';
+import './App.css';
 
 function App() {
   const [showHome, setShowHome] = useState(true);
