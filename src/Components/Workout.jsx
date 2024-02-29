@@ -21,8 +21,10 @@ function Workout() {
           <p>{exercise.name}</p>
           <p>{exercise.sets}</p>
           <p>{exercise.reps}</p>
+          <p>{exercise.weight}</p>
           <p>{exercise.time}</p>
           <p>{exercise.distance}</p>
+          <p>{exercise.description}</p>
         </Box>
       ))}
     </div>
