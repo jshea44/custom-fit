@@ -6,18 +6,20 @@ function Workout() {
       name: 'pullups',
       sets: '3',
       reps: '10',
+      _id: 1,
     },
     {
       name: 'pushups',
       sets: '3',
       time: '15 seconds',
+      _id: 2,
     },
   ];
 
   return (
     <div>
-      {sampleExercises.map((exercise, index) => (
-        <Box key={index} sx={{ border: 'solid red 2px' }}>
+      {sampleExercises.map((exercise, _id) => (
+        <Box key={_id} sx={{ border: 'solid red 2px', margin: '5px' }}>
           <p>{exercise.name}</p>
           <p>{exercise.sets}</p>
           <p>{exercise.reps}</p>
