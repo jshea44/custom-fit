@@ -20,9 +20,16 @@ function App() {
     setShowHome(false);
     setShowWorkout(true);
   };
+
+  const handleHomeButtonClick = () => {
+    setShowHome(true);
+    setShowCreateWorkout(false);
+    setShowWorkout(false);
+  };
+
   return (
     <>
-      <Header />
+      <Header onHomeButtonClick={handleHomeButtonClick} />
       {showHome && (
         <Home
           onCreateWorkoutClick={handleCreateWorkoutClick}
