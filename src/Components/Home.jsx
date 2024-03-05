@@ -2,7 +2,6 @@ import { Button, Stack } from '@mui/material';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 const API_SERVER = import.meta.env.VITE_APP_API;
-// import Workout from './Workout';
 
 function Home({ onCreateWorkoutClick, onWorkoutClick }) {
   const [workouts, setWorkouts] = useState([]);
@@ -19,6 +18,10 @@ function Home({ onCreateWorkoutClick, onWorkoutClick }) {
     fetchWorkouts();
   }, []);
 
+  const handleWorkoutClick = (workoutId) => {
+    onWorkoutClick(workoutId);
+  };
+
   return (
     <div>
       <h2>Workouts</h2>
@@ -28,8 +31,11 @@ function Home({ onCreateWorkoutClick, onWorkoutClick }) {
       </Button>
 
       <Stack spacing={2} direction={'column'}>
-        {workouts.map((workout, _id) => (
-          <Button onClick={onWorkoutClick} key={_id}>
+        {workouts.map((workout) => (
+          <Button
+            onClick={() => handleWorkoutClick(workout._id)}
+            key={workout._id}
+          >
             {workout.name}
           </Button>
         ))}

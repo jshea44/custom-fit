@@ -10,21 +10,24 @@ function App() {
   const [homeComponent, setHomeComponent] = useState(true);
   const [createWorkoutComponent, setCreateWorkoutComponent] = useState(false);
   const [workoutComponent, setWorkoutComponent] = useState(false);
+  const [workoutId, setWorkoutId] = useState(null);
 
   const handleCreateWorkoutClick = () => {
     setCreateWorkoutComponent(true);
     setHomeComponent(false);
   };
 
-  const handleWorkoutClick = () => {
+  const handleWorkoutClick = (workoutId) => {
     setHomeComponent(false);
     setWorkoutComponent(true);
+    setWorkoutId(workoutId);
   };
 
   const handleHomeButtonClick = () => {
     setHomeComponent(true);
     setCreateWorkoutComponent(false);
     setWorkoutComponent(false);
+    setWorkoutId(null);
   };
 
   return (
@@ -37,7 +40,7 @@ function App() {
         />
       )}
       {createWorkoutComponent && <CreateWorkout />}
-      {workoutComponent && <Workout />}
+      {workoutComponent && <Workout workoutId={workoutId} />}
       <Footer />
     </>
   );
