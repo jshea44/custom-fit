@@ -7,37 +7,37 @@ import Footer from './Components/Footer';
 import './App.css';
 
 function App() {
-  const [showHome, setShowHome] = useState(true);
-  const [showCreateWorkout, setShowCreateWorkout] = useState(false);
-  const [showWorkout, setShowWorkout] = useState(false);
+  const [homeComponent, setHomeComponent] = useState(true);
+  const [createWorkoutComponent, setCreateWorkoutComponent] = useState(false);
+  const [workoutComponent, setWorkoutComponent] = useState(false);
 
   const handleCreateWorkoutClick = () => {
-    setShowCreateWorkout(true);
-    setShowHome(false);
+    setCreateWorkoutComponent(true);
+    setHomeComponent(false);
   };
 
   const handleWorkoutClick = () => {
-    setShowHome(false);
-    setShowWorkout(true);
+    setHomeComponent(false);
+    setWorkoutComponent(true);
   };
 
   const handleHomeButtonClick = () => {
-    setShowHome(true);
-    setShowCreateWorkout(false);
-    setShowWorkout(false);
+    setHomeComponent(true);
+    setCreateWorkoutComponent(false);
+    setWorkoutComponent(false);
   };
 
   return (
     <>
       <Header onHomeButtonClick={handleHomeButtonClick} />
-      {showHome && (
+      {homeComponent && (
         <Home
           onCreateWorkoutClick={handleCreateWorkoutClick}
           onWorkoutClick={handleWorkoutClick}
         />
       )}
-      {showCreateWorkout && <CreateWorkout />}
-      {showWorkout && <Workout />}
+      {createWorkoutComponent && <CreateWorkout />}
+      {workoutComponent && <Workout />}
       <Footer />
     </>
   );
