@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import Home from './Components/Home';
 import Header from './Components/Header';
 import CreateWorkout from './Components/CreateWorkout';
@@ -31,7 +32,7 @@ function App() {
   };
 
   return (
-    <>
+    <BrowserRouter>
       <Header onHomeButtonClick={handleHomeButtonClick} />
       {homeComponent && (
         <Home
@@ -42,7 +43,7 @@ function App() {
       {createWorkoutComponent && <CreateWorkout />}
       {workoutComponent && <Workout workoutId={workoutId} />}
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 
