@@ -69,6 +69,7 @@ function CreateWorkout() {
         <TextField
           fullWidth
           label="Workout Name"
+          value={workoutName}
           sx={{ paddingBottom: 5 }}
         ></TextField>
         {exercises.map((exercise, index) => (
@@ -85,23 +86,62 @@ function CreateWorkout() {
               <ListItem>
                 <TextField
                   label="Exercise Name"
+                  value={exercise.name}
+                  onChange={(e) => {
+                    handleInputChange(index, 'name', e.target.value);
+                  }}
                   sx={{ width: '25ch' }}
                 ></TextField>
               </ListItem>
               <ListItem>
-                <TextField label="Sets" sx={{ width: '25ch' }}></TextField>
+                <TextField
+                  label="Sets"
+                  value={exercise.sets}
+                  onChange={(e) => {
+                    handleInputChange(index, 'sets', e.target.value);
+                  }}
+                  sx={{ width: '25ch' }}
+                ></TextField>
               </ListItem>
               <ListItem>
-                <TextField label="Reps" sx={{ width: '25ch' }}></TextField>
+                <TextField
+                  label="Reps"
+                  value={exercise.reps}
+                  onChange={(e) => {
+                    handleInputChange(index, 'reps', e.target.value);
+                  }}
+                  sx={{ width: '25ch' }}
+                ></TextField>
               </ListItem>
               <ListItem>
-                <TextField label="Weight" sx={{ width: '25ch' }}></TextField>
+                <TextField
+                  label="Weight"
+                  value={exercise.weight}
+                  onChange={(e) => {
+                    handleInputChange(index, 'weight', e.target.value);
+                  }}
+                  sx={{ width: '25ch' }}
+                ></TextField>
               </ListItem>
               <ListItem>
-                <TextField label="Time" sx={{ width: '25ch' }}></TextField>
+                <TextField
+                  label="Time"
+                  value={exercise.time}
+                  onChange={(e) => {
+                    handleInputChange(index, 'time', e.target.value);
+                  }}
+                  sx={{ width: '25ch' }}
+                ></TextField>
               </ListItem>
               <ListItem>
-                <TextField label="Distance" sx={{ width: '25ch' }}></TextField>
+                <TextField
+                  label="Distance"
+                  value={exercise.distance}
+                  onChange={(e) => {
+                    handleInputChange(index, 'distance', e.target.value);
+                  }}
+                  sx={{ width: '25ch' }}
+                ></TextField>
               </ListItem>
               <ListItem>
                 <TextField
