@@ -65,7 +65,7 @@ function CreateWorkout() {
   return (
     <div>
       <h2>Create Workout</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <TextField
           fullWidth
           label="Workout Name"
