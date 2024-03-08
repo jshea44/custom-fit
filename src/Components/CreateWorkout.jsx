@@ -11,9 +11,12 @@ import {
   Select,
   MenuItem,
 } from '@mui/material';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+const API_SERVER = import.meta.env.VITE_APP_API;
 
 function CreateWorkout() {
+  const [workoutName, setWorkoutName] = useState('');
   const [exercises, setExercises] = useState([
     {
       name: '',
@@ -25,6 +28,24 @@ function CreateWorkout() {
       description: '',
     },
   ]);
+
+  const handleInputChange = (index, field, value) => {
+    const newExercises = [...exercises];
+    newExercises[index][field] = value;
+    setExercises(newExercises);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault;
+    try {
+      const response = await axios.post(`${API_SERVER}/workout`, {
+        name: workoutName,
+        exercises,
+      });
+    } catch (error) {
+      console.error('Error creating workout', error);
+    }
+  };
 
   const addExercise = () => {
     setExercises([
