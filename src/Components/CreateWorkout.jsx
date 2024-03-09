@@ -11,7 +11,7 @@ import {
   Select,
   MenuItem,
 } from '@mui/material';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 const API_SERVER = import.meta.env.VITE_APP_API;
 
@@ -70,6 +70,7 @@ function CreateWorkout() {
           fullWidth
           label="Workout Name"
           value={workoutName}
+          onChange={(e) => setWorkoutName(e.target.value)}
           sx={{ paddingBottom: 5 }}
         ></TextField>
         {exercises.map((exercise, index) => (
@@ -160,7 +161,7 @@ function CreateWorkout() {
           </Button>
         </Divider>
         <Button type="submit">Create</Button>
-        <Button type="submit">Cancel</Button>
+        <Button type="button">Cancel</Button>
       </form>
     </div>
   );
