@@ -40,8 +40,15 @@ function App() {
           onWorkoutClick={handleWorkoutClick}
         />
       )}
-      {createWorkoutComponent && <CreateWorkout />}
-      {workoutComponent && <Workout workoutId={workoutId} />}
+      {createWorkoutComponent && (
+        <CreateWorkout onCancelButtonClick={handleHomeButtonClick} />
+      )}
+      {workoutComponent && (
+        <Workout
+          onDeleteButtonClick={handleHomeButtonClick}
+          workoutId={workoutId}
+        />
+      )}
       <Footer />
     </BrowserRouter>
   );

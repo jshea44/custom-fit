@@ -3,7 +3,7 @@ import { Box, Button } from '@mui/material';
 import axios from 'axios';
 const API_SERVER = import.meta.env.VITE_APP_API;
 
-function Workout({ workoutId }) {
+function Workout({ workoutId, onDeleteButtonClick }) {
   const [exercises, setExercises] = useState([]);
 
   useEffect(() => {
@@ -18,12 +18,26 @@ function Workout({ workoutId }) {
     fetchExercises();
   }, [workoutId]);
 
+  const handleDeleteWorkoutClick = async () => {
+    try {
+      await axios.delete(`${API_SERVER}/workout/${workoutId}`);
+      onDeleteButtonClick();
+    } catch (error) {
+      console.error('Error deleting workout', error);
+    }
+  };
+
   return (
     <div>
       <Button type="button" variant="contained">
         EDIT
       </Button>
-      <Button type="button" variant="outlined" color="error">
+      <Button
+        onClick={handleDeleteWorkoutClick}
+        type="button"
+        variant="outlined"
+        color="error"
+      >
         DELETE
       </Button>
       {exercises.map((exercise, _id) => (

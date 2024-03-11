@@ -15,7 +15,7 @@ import { useState } from 'react';
 import axios from 'axios';
 const API_SERVER = import.meta.env.VITE_APP_API;
 
-function CreateWorkout() {
+function CreateWorkout({ onCancelButtonClick }) {
   const [workoutName, setWorkoutName] = useState('');
   const [exercises, setExercises] = useState([
     {
@@ -45,6 +45,10 @@ function CreateWorkout() {
     } catch (error) {
       console.error('Error creating workout', error);
     }
+  };
+
+  const handleCancelButtonClick = () => {
+    onCancelButtonClick();
   };
 
   const addExercise = () => {
@@ -167,7 +171,11 @@ function CreateWorkout() {
         <Button type="submit" variant="contained">
           Create
         </Button>
-        <Button type="button" variant="outlined">
+        <Button
+          type="button"
+          variant="outlined"
+          onClick={handleCancelButtonClick}
+        >
           Cancel
         </Button>
       </form>
