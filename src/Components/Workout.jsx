@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import axios from 'axios';
 const API_SERVER = import.meta.env.VITE_APP_API;
 
@@ -20,6 +20,12 @@ function Workout({ workoutId }) {
 
   return (
     <div>
+      <Button type="button" variant="contained">
+        EDIT
+      </Button>
+      <Button type="button" variant="outlined" color="error">
+        DELETE
+      </Button>
       {exercises.map((exercise, _id) => (
         <Box key={_id} sx={{ border: 'solid red 2px', margin: '5px' }}>
           <p>{exercise.name}</p>

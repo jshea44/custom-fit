@@ -164,8 +164,12 @@ function CreateWorkout() {
             Add An Exercise
           </Button>
         </Divider>
-        <Button type="submit">Create</Button>
-        <Button type="button">Cancel</Button>
+        <Button type="submit" variant="contained">
+          Create
+        </Button>
+        <Button type="button" variant="outlined">
+          Cancel
+        </Button>
       </form>
     </div>
   );
