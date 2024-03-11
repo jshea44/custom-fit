@@ -149,6 +149,10 @@ function CreateWorkout() {
                   label="Add a description..."
                   multiline
                   rows={4}
+                  value={exercise.description}
+                  onChange={(e) => {
+                    handleInputChange(index, 'description', e.target.value);
+                  }}
                   sx={{ width: '25ch' }}
                 ></TextField>
               </ListItem>
