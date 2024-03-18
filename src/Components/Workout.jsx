@@ -6,7 +6,7 @@ const API_SERVER = import.meta.env.VITE_APP_API;
 
 function Workout({ workoutId, onDeleteButtonClick }) {
   const [exercises, setExercises] = useState([]);
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     const fetchExercises = async () => {
@@ -23,6 +23,7 @@ function Workout({ workoutId, onDeleteButtonClick }) {
   const handleDeleteWorkoutClick = async () => {
     try {
       await axios.delete(`${API_SERVER}/workout/${workoutId}`);
+      setModal(false);
       onDeleteButtonClick();
     } catch (error) {
       console.error('Error deleting workout', error);
@@ -35,13 +36,14 @@ function Workout({ workoutId, onDeleteButtonClick }) {
         EDIT
       </Button>
       <Button
-        onClick={handleDeleteWorkoutClick}
+        onClick={() => setModal(true)}
         type="button"
         variant="outlined"
         color="error"
       >
         DELETE
       </Button>
+
       <Modal open={modal}>
         <Box
           sx={{
@@ -58,12 +60,19 @@ function Workout({ workoutId, onDeleteButtonClick }) {
           }}
         >
           <Typography>Are you sure you want to delete this workout?</Typography>
-          <Button variant="contained" color="error">
+          <Button
+            variant="contained"
+            color="error"
+            onClick={handleDeleteWorkoutClick}
+          >
             DELETE
           </Button>
-          <Button variant="outlined">CANCEL</Button>
+          <Button variant="outlined" onClick={() => setModal(false)}>
+            CANCEL
+          </Button>
         </Box>
       </Modal>
+
       {exercises.map((exercise, _id) => (
         <Box key={_id} sx={{ border: 'solid red 2px', margin: '5px' }}>
           <p>{exercise.name}</p>
