@@ -32,14 +32,19 @@ function Workout({ workoutId, onDeleteButtonClick }) {
 
   return (
     <div>
-      <Button type="button" variant="contained">
+      <Button
+        type="button"
+        variant="contained"
+        // sx={{ color: 'white', backgroundColor: 'blue' }}
+      >
         EDIT
       </Button>
       <Button
         onClick={() => setModal(true)}
         type="button"
-        variant="outlined"
+        variant="contained"
         color="error"
+        // sx={{ color: 'white', backgroundColor: 'red' }}
       >
         DELETE
       </Button>
