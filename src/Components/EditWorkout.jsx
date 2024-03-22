@@ -3,8 +3,8 @@ import { useState } from 'react';
 import axios from 'axios';
 const API_SERVER = import.meta.env.VITE_APP_API;
 
-function EditWorkout() {
-  const handleWorkoutUpdate = async (e) => {
+function EditWorkout({ onCancelButtonClick, workoutId }) {
+  const updateWorkout = async (e) => {
     e.preventDefault;
     try {
       const response = await axios.put(`${API_SERVER}/workout`);
@@ -18,8 +18,11 @@ function EditWorkout() {
       <h2>Edit Workout</h2>
       <form>
         <TextField></TextField>
-        {}
       </form>
+      <Button type="button" onClick={onCancelButtonClick}>
+        Cancel
+      </Button>
+      <Button>Save</Button>
     </div>
   );
 }

@@ -3,7 +3,6 @@ import { Box, Button, Modal, Typography } from '@mui/material';
 import axios from 'axios';
 const API_SERVER = import.meta.env.VITE_APP_API;
 import EditWorkout from './EditWorkout';
-// import '../App.css';
 
 function Workout({ workoutId, onDeleteButtonClick }) {
   const [exercises, setExercises] = useState([]);
@@ -39,7 +38,10 @@ function Workout({ workoutId, onDeleteButtonClick }) {
   return (
     <div>
       {editMode ? (
-        <EditWorkout />
+        <EditWorkout
+          workoutId={workoutId}
+          onCancelButtonClick={() => setEditMode(false)}
+        />
       ) : (
         <>
           <Button
