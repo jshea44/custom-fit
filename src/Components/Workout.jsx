@@ -40,7 +40,7 @@ function Workout({ workoutId, onDeleteButtonClick }) {
       {editMode ? (
         <EditWorkout
           workoutId={workoutId}
-          exercise={exercises}
+          exercises={exercises}
           onCancelButtonClick={() => setEditMode(false)}
         />
       ) : (

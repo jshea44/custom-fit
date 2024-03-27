@@ -15,7 +15,7 @@ function EditWorkout({
   const handleUpdateWorkout = async (e) => {
     e.preventDefault;
     try {
-      const response = await axios.patch(`${API_SERVER}/workout/${workoutId}`);
+      const response = await axios.put(`${API_SERVER}/workout/${workoutId}`);
     } catch (error) {
       console.error('Error updating workout', error);
     }
@@ -27,10 +27,25 @@ function EditWorkout({
     setEditedExercises(updatedExercises);
   };
 
+  const addExercise = () => {
+    setEditedExercises([
+      ...editedExercises,
+      {
+        name: '',
+        sets: '',
+        reps: '',
+        weight: '',
+        time: '',
+        distance: '',
+        description: '',
+      },
+    ]);
+  };
+
   return (
     <div>
       <h2>Edit Workout</h2>
-      <form>
+      <form onSubmit={handleUpdateWorkout}>
         <TextField></TextField>
         {editedExercises.map((exercise, index) => (
           <Box
