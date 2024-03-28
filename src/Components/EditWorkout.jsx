@@ -15,7 +15,10 @@ function EditWorkout({
   const handleUpdateWorkout = async (e) => {
     e.preventDefault;
     try {
-      const response = await axios.put(`${API_SERVER}/workout/${workoutId}`);
+      const response = await axios.put(`${API_SERVER}/workout/${workoutId}`, {
+        name: editedWorkoutName,
+        editedExercises,
+      });
     } catch (error) {
       console.error('Error updating workout', error);
     }
@@ -138,11 +141,11 @@ function EditWorkout({
             Add An Exercise
           </Button>
         </Divider>
+        <Button type="button" onClick={onCancelButtonClick}>
+          Cancel
+        </Button>
+        <Button type="submit">Save</Button>
       </form>
-      <Button type="button" onClick={onCancelButtonClick}>
-        Cancel
-      </Button>
-      <Button type="submit">Save</Button>
     </div>
   );
 }
