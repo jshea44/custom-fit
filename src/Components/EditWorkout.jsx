@@ -13,12 +13,14 @@ function EditWorkout({
   const [editedExercises, setEditedExercises] = useState(exercises);
 
   const handleUpdateWorkout = async (e) => {
-    e.preventDefault;
+    e.preventDefault();
+    console.log('handleUpdate being called??');
     try {
       const response = await axios.put(`${API_SERVER}/workout/${workoutId}`, {
         name: editedWorkoutName,
-        editedExercises,
+        exercises: editedExercises,
       });
+      console.log(response);
     } catch (error) {
       console.error('Error updating workout', error);
     }
