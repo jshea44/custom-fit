@@ -54,7 +54,7 @@ function EditWorkout({
         <TextField
           fullWidth
           label="Workout Name"
-          value={workoutName}
+          value={editedWorkoutName}
           onChange={(e) => setEditedWorkoutName(e.target.value)}
           sx={{ paddingBottom: 5 }}
         ></TextField>
