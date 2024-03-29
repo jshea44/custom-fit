@@ -6,6 +6,7 @@ import EditWorkout from './EditWorkout';
 
 function Workout({ workoutId, onDeleteButtonClick }) {
   const [exercises, setExercises] = useState([]);
+  const [workoutName, setWorkoutName] = useState(null);
   const [modal, setModal] = useState(false);
   const [editMode, setEditMode] = useState(false);
 
@@ -14,6 +15,7 @@ function Workout({ workoutId, onDeleteButtonClick }) {
       try {
         const response = await axios.get(`${API_SERVER}/workout/${workoutId}`);
         setExercises(response.data.exercises);
+        setWorkoutName(response.data.name);
       } catch (error) {
         console.error('Error fetching exercises', error);
       }
@@ -46,6 +48,7 @@ function Workout({ workoutId, onDeleteButtonClick }) {
           workoutId={workoutId}
           exercises={exercises}
           onCancelButtonClick={handleCancelEdit}
+          workoutName={workoutName}
         />
       ) : (
         <>
@@ -95,6 +98,7 @@ function Workout({ workoutId, onDeleteButtonClick }) {
               </Button>
             </Box>
           </Modal>
+          <h2>{workoutName}</h2>
 
           {exercises.map((exercise, _id) => (
             <Box key={_id} sx={{ border: 'solid red 2px', margin: '5px' }}>

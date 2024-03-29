@@ -49,7 +49,13 @@ function EditWorkout({
     <div>
       <h2>Edit Workout</h2>
       <form onSubmit={handleUpdateWorkout}>
-        <TextField></TextField>
+        <TextField
+          fullWidth
+          label="Workout Name"
+          value={workoutName}
+          onChange={(e) => setEditedWorkoutName(e.target.value)}
+          sx={{ paddingBottom: 5 }}
+        ></TextField>
         {editedExercises.map((exercise, index) => (
           <Box
             key={index}
