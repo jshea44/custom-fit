@@ -37,7 +37,7 @@ function Workout({ workoutId, onDeleteButtonClick }) {
     setEditMode(true);
   };
 
-  const handleCancelEdit = () => {
+  const handleCloseEditPage = () => {
     setEditMode(false);
   };
 
@@ -47,7 +47,7 @@ function Workout({ workoutId, onDeleteButtonClick }) {
         <EditWorkout
           workoutId={workoutId}
           exercises={exercises}
-          onCancelButtonClick={handleCancelEdit}
+          onButtonClick={handleCloseEditPage}
           workoutName={workoutName}
         />
       ) : (

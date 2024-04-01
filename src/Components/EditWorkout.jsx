@@ -3,12 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 const API_SERVER = import.meta.env.VITE_APP_API;
 
-function EditWorkout({
-  onCancelButtonClick,
-  workoutId,
-  exercises,
-  workoutName,
-}) {
+function EditWorkout({ onButtonClick, workoutId, exercises, workoutName }) {
   const [editedWorkoutName, setEditedWorkoutName] = useState(workoutName);
   const [editedExercises, setEditedExercises] = useState(exercises);
 
@@ -20,6 +15,7 @@ function EditWorkout({
         name: editedWorkoutName,
         exercises: editedExercises,
       });
+      onButtonClick();
       console.log(response);
     } catch (error) {
       console.error('Error updating workout', error);
@@ -149,7 +145,7 @@ function EditWorkout({
             Add An Exercise
           </Button>
         </Divider>
-        <Button type="button" onClick={onCancelButtonClick}>
+        <Button type="button" onClick={onButtonClick}>
           Cancel
         </Button>
         <Button type="submit">Save</Button>
