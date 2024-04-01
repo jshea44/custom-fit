@@ -43,6 +43,13 @@ function EditWorkout({ onButtonClick, workoutId, exercises, workoutName }) {
     ]);
   };
 
+  const deleteLastExercise = () => {
+    if (editedExercises.length > 1) {
+      const updatedExercises = editedExercises.slice(0, -1);
+      setEditedExercises(updatedExercises);
+    }
+  };
+
   return (
     <div>
       <h2>Edit Workout</h2>
@@ -143,6 +150,9 @@ function EditWorkout({ onButtonClick, workoutId, exercises, workoutName }) {
         <Divider>
           <Button type="button" onClick={addExercise}>
             Add An Exercise
+          </Button>
+          <Button type="button" onClick={deleteLastExercise}>
+            Delete Last Exercise
           </Button>
         </Divider>
         <Button type="button" onClick={onButtonClick}>

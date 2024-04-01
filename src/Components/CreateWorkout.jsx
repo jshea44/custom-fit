@@ -54,6 +54,13 @@ function CreateWorkout({ onCancelButtonClick }) {
     ]);
   };
 
+  const deleteLastExercise = () => {
+    if (exercises.length > 1) {
+      const updatedExercises = exercises.slice(0, -1);
+      setExercises(updatedExercises);
+    }
+  };
+
   return (
     <div>
       <h2>Create Workout</h2>
@@ -154,6 +161,9 @@ function CreateWorkout({ onCancelButtonClick }) {
         <Divider>
           <Button type="button" onClick={addExercise}>
             Add An Exercise
+          </Button>
+          <Button type="button" onClick={deleteLastExercise}>
+            Delete Last Exercise
           </Button>
         </Divider>
         <Button type="submit" variant="contained">
