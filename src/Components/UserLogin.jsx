@@ -1,6 +1,9 @@
 import { Box, TextField, Button } from '@mui/material';
 
-function UserLogin() {
+function UserLogin({ loginClick }) {
+  const handleLoginSubmit = () => {
+    loginClick();
+  };
   return (
     <Box
       sx={{
@@ -12,11 +15,11 @@ function UserLogin() {
         width: '400px',
       }}
     >
-      <form>
+      <form onSubmit={handleLoginSubmit}>
         <h2>Please login below</h2>
         <TextField label="username"></TextField>
         <TextField label="password"></TextField>
-        <Button>login</Button>
+        <Button type="submit">login</Button>
       </form>
     </Box>
   );

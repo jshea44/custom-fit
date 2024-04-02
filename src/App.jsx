@@ -9,7 +9,7 @@ import UserLogin from './Components/UserLogin';
 import './App.css';
 
 function App() {
-  const [homeComponent, setHomeComponent] = useState(true);
+  const [homeComponent, setHomeComponent] = useState(false);
   const [createWorkoutComponent, setCreateWorkoutComponent] = useState(false);
   const [workoutComponent, setWorkoutComponent] = useState(false);
   const [workoutId, setWorkoutId] = useState(null);
@@ -33,10 +33,15 @@ function App() {
     setWorkoutId(null);
   };
 
+  const handleLoginClick = () => {
+    setLoginPage(false);
+    setHomeComponent(true);
+  };
+
   return (
     <BrowserRouter>
       {loginPage ? (
-        <UserLogin />
+        <UserLogin loginClick={handleLoginClick} />
       ) : (
         <>
           <Header onHomeButtonClick={handleHomeButtonClick} />
