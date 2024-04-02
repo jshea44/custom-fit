@@ -13,7 +13,7 @@ function App() {
   const [createWorkoutComponent, setCreateWorkoutComponent] = useState(false);
   const [workoutComponent, setWorkoutComponent] = useState(false);
   const [workoutId, setWorkoutId] = useState(null);
-  const [loginPage, setLoginPage] = useState(false);
+  const [loginPage, setLoginPage] = useState(true);
 
   const handleCreateWorkoutClick = () => {
     setCreateWorkoutComponent(true);
