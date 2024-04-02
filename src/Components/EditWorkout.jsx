@@ -9,14 +9,12 @@ function EditWorkout({ onButtonClick, workoutId, exercises, workoutName }) {
 
   const handleUpdateWorkout = async (e) => {
     e.preventDefault();
-    console.log('handleUpdate being called??');
     try {
       const response = await axios.put(`${API_SERVER}/workout/${workoutId}`, {
         name: editedWorkoutName,
         exercises: editedExercises,
       });
       onButtonClick();
-      console.log(response);
     } catch (error) {
       console.error('Error updating workout', error);
     }

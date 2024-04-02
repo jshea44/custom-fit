@@ -16,13 +16,12 @@ function Workout({ workoutId, onDeleteButtonClick }) {
         const response = await axios.get(`${API_SERVER}/workout/${workoutId}`);
         setExercises(response.data.exercises);
         setWorkoutName(response.data.name);
-        console.log(workoutId);
       } catch (error) {
         console.error('Error fetching exercises', error);
       }
     };
     fetchExercises();
-  }, [workoutId]);
+  }, [workoutId, exercises]);
 
   const handleDeleteWorkoutClick = async () => {
     try {
