@@ -1,7 +1,11 @@
 import { Box, TextField, Button } from '@mui/material';
+import { useState } from 'react';
+import CreateUser from './CreateUser';
 
 function UserLogin({ loginClick }) {
+  const [createUserPage, setCreateUserPage] = useState(true);
   const handleLoginSubmit = () => {
+    // add logic for loging in (axios)
     loginClick();
   };
   return (
@@ -15,12 +19,17 @@ function UserLogin({ loginClick }) {
         width: '400px',
       }}
     >
-      <form onSubmit={handleLoginSubmit}>
-        <h2>Please login below</h2>
-        <TextField label="username"></TextField>
-        <TextField label="password"></TextField>
-        <Button type="submit">login</Button>
-      </form>
+      {createUserPage ? (
+        <CreateUser />
+      ) : (
+        <form onSubmit={handleLoginSubmit}>
+          <h2>Please login or create an account</h2>
+          <TextField label="username"></TextField>
+          <TextField label="password"></TextField>
+          <Button type="submit">login</Button>
+          <Button type="button">Create An Account</Button>
+        </form>
+      )}
     </Box>
   );
 }
