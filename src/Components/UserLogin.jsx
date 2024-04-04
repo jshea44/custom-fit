@@ -8,6 +8,9 @@ function UserLogin({ loginClick }) {
     // add logic for loging in (axios)
     loginClick();
   };
+  const handleCancelCreate = () => {
+    setCreateUserPage(false);
+  };
   return (
     <Box
       sx={{
@@ -21,8 +24,8 @@ function UserLogin({ loginClick }) {
     >
       {createUserPage ? (
         <CreateUser
-        // cancelCreateClick={handleCancelCreate}
-        // createClick={handleCreateUser}
+          cancelCreateClick={handleCancelCreate}
+          // createClick={handleCreateUser}
         />
       ) : (
         <form onSubmit={handleLoginSubmit}>

@@ -1,6 +1,6 @@
 import { Box, TextField, Button } from '@mui/material';
 
-function CreateUser() {
+function CreateUser({ cancelCreateClick }) {
   return (
     <Box>
       <form>
@@ -8,7 +8,7 @@ function CreateUser() {
         <TextField label="Enter a username"></TextField>
         <TextField label="Enter a password"></TextField>
         <Button>Create</Button>
-        <Button>Cancel</Button>
+        <Button onClick={cancelCreateClick}>Cancel</Button>
       </form>
     </Box>
   );
