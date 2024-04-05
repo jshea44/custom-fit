@@ -1,13 +1,25 @@
 import { Box, TextField, Button } from '@mui/material';
 import { useState } from 'react';
 import CreateUser from './CreateUser';
+import axios from 'axios';
+const API_SERVER = import.meta.env.VITE_APP_API;
 
 function UserLogin({ loginClick }) {
   const [createUserPage, setCreateUserPage] = useState(false);
-  const handleLoginSubmit = () => {
+
+  const handleLoginSubmit = async () => {
     // add logic for loging in (axios)
+    // try {
+    //   const response = await axios.get(`${API_SERVER}/signin`, {
+    //     username: ,
+    //     password: ,
+    //   });
+    // } catch (error) {
+    //   console.error("Error logging into account", error);
+    // }
     loginClick();
   };
+
   const handleCancelCreate = () => {
     setCreateUserPage(false);
   };
