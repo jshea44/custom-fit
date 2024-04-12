@@ -35,10 +35,7 @@ function UserLogin({ loginClick }) {
       }}
     >
       {createUserPage ? (
-        <CreateUser
-          cancelCreateClick={handleCancelCreate}
-          // createClick={handleCreateUser}
-        />
+        <CreateUser cancelCreateClick={handleCancelCreate} />
       ) : (
         <form onSubmit={handleLoginSubmit}>
           <h2>Please login or create an account</h2>

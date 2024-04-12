@@ -7,7 +7,7 @@ function CreateUser({ cancelCreateClick }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleCreateButtonClick = async () => {
+  const handleCreateUserSubmit = async () => {
     try {
       // logic to create account (axios call)
       const response = await axios.post(`${API_SERVER}/signup`, {
@@ -29,7 +29,7 @@ function CreateUser({ cancelCreateClick }) {
 
   return (
     <Box>
-      <form onSubmit={handleCreateButtonClick}>
+      <form onSubmit={handleCreateUserSubmit}>
         <h2>Create Account</h2>
         <TextField
           label="Enter a username"
@@ -40,6 +40,7 @@ function CreateUser({ cancelCreateClick }) {
         ></TextField>
         <TextField
           label="Enter a password"
+          type="password"
           value={password}
           onChange={(e) => {
             handleInputChange('password', e.target.value);
