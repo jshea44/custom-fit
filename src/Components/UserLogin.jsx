@@ -11,12 +11,16 @@ function UserLogin({ loginClick }) {
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    // add logic for loging in (axios)
     try {
-      const response = await axios.post(`${API_SERVER}/signin`, {
-        username,
-        password,
-      });
+      const response = await axios.post(
+        `${API_SERVER}/signin`,
+        {},
+        {
+          headers: {
+            Authorization: `Basic ${btoa(`${username}:${password}`)}`,
+          },
+        }
+      );
     } catch (error) {
       console.error('Error logging into account', error);
     }
